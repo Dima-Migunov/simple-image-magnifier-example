@@ -21,7 +21,7 @@ function App() {
         <div className='flex items-center justify-center w-screen max-w-screen-xl pt-10 pb-20 mx-auto'>
             <div className='grid grid-cols-3 gap-5'>
                 <div className='col-span-3 m-5 prose text-center max-w-none'>
-                    <h1 className='text-2xl md:text-4xl'>Introducing "Image Magnifier" React</h1>
+                    <h1 className='text-2xl md:text-4xl'>Introducing React "Image Magnifier"</h1>
                     <p>
                         The Ultimate Product Image Zoom Solution
                         <span className='ml-1 whitespace-nowrap'>for Your Online Store!</span>
@@ -54,7 +54,7 @@ function App() {
 
                 <div className='col-span-3 m-5 prose text-center max-w-none'>
                     <hr />
-                    <h1 className='text-2xl md:text-4xl'>Introducing "Image Magnifier" HTML+Javascript</h1>
+                    <h1 className='text-2xl md:text-4xl'>Introducing "Simple Image Magnifier" HTML+Javascript</h1>
                     <p>
                         The Ultimate Product Image Zoom Solution
                         <span className='ml-1 whitespace-nowrap'>for Your Online Store!</span>
