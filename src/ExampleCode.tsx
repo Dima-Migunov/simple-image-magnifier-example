@@ -1,22 +1,22 @@
-import hljs from 'highlight.js/lib/core'
-import javascript from 'highlight.js/lib/languages/javascript'
-import 'highlight.js/styles/atom-one-dark.css'
-import { useEffect, useRef } from 'react'
+import hljs from "highlight.js/lib/core"
+import javascript from "highlight.js/lib/languages/javascript"
+import "highlight.js/styles/atom-one-dark.css"
+import { useEffect, useRef } from "react"
 
 export default function ExampleCode() {
-    const codeRef = useRef(null)
+  const codeRef = useRef(null)
 
-    useEffect(() => {
-        if (codeRef?.current) {
-            hljs.registerLanguage('javascript', javascript)
-            hljs.highlightBlock(codeRef.current)
-        }
-    }, [codeRef])
+  useEffect(() => {
+    if (codeRef?.current) {
+      hljs.registerLanguage("javascript", javascript)
+      hljs.highlightBlock(codeRef.current)
+    }
+  }, [codeRef])
 
-    return (
-        <pre>
-            <code ref={codeRef}>
-                {`import { useState } from 'react'
+  return (
+    <pre>
+      <code ref={codeRef}>
+        {`import { useState } from 'react'
 import ReactImageMagnifier from 'simple-image-magnifier/react'
 
 import imagePreview1 from './assets/image-preview-1.jpg'
@@ -61,6 +61,7 @@ function App() {
                     srcPreview={previews[imgActive]}
                     srcOriginal={originals[imgActive]}
                     className='bg-gray-200 rounded-lg'
+                    objectFit='cover'
                 />
             </div>
         </div>
@@ -68,7 +69,7 @@ function App() {
 }
 
 export default App`}
-            </code>
-        </pre>
-    )
+      </code>
+    </pre>
+  )
 }
