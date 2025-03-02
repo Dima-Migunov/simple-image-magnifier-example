@@ -1,22 +1,20 @@
-import hljs from 'highlight.js/lib/core'
-import javascript from 'highlight.js/lib/languages/javascript'
-import 'highlight.js/styles/atom-one-dark.css'
-import { useEffect, useRef } from 'react'
+import hljs from "highlight.js/lib/common"
+import "highlight.js/styles/atom-one-dark.css"
+import { useEffect, useRef } from "react"
 
 export default function ExampleHtmlCode() {
-    const codeRef = useRef(null)
+  const codeRef = useRef(null)
 
-    useEffect(() => {
-        if (codeRef?.current) {
-            hljs.registerLanguage('javascript', javascript)
-            hljs.highlightBlock(codeRef.current)
-        }
-    }, [codeRef])
+  useEffect(() => {
+    if (codeRef?.current) {
+      hljs.highlightElement(codeRef.current)
+    }
+  }, [codeRef])
 
-    return (
-        <pre>
-            <code ref={codeRef}>
-                {`<!DOCTYPE html>
+  return (
+    <pre>
+      <code ref={codeRef} className="language-html">
+        {`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,7 +70,7 @@ export default function ExampleHtmlCode() {
     </div>
     <script type="module">
         import ImageMagnifier from "./simple-image-magnifier.js"
-        
+
         const refreshImage = ImageMagnifier(
             '.product-wrapper',
             '.product-image-preview',
@@ -81,7 +79,7 @@ export default function ExampleHtmlCode() {
     </script>
 </body>
 </html>`}
-            </code>
-        </pre>
-    )
+      </code>
+    </pre>
+  )
 }

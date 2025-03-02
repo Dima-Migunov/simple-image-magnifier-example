@@ -1,27 +1,29 @@
-function u(o, r, n) {
-  let a = 1, d = 1;
-  const e = typeof o == "string" ? document.querySelector(o) : o;
-  if (!e)
-    throw new Error("containerElement is not found");
-  const i = typeof r == "string" ? e.querySelector(r) : r;
-  if (!i)
-    throw new Error("imageElement is not found");
-  const t = typeof n == "string" ? e.querySelector(n) : n;
-  if (!t)
-    throw new Error("imageOriginalEl is not found");
+function m(r, u, c) {
+  const o = (t, p) => {
+    const d = typeof t == "string" ? (p || document).querySelector(t) : t;
+    if (!d)
+      throw new Error(
+        `Element ${typeof t == "string" ? `with selector '${t}'` : "is"} not found`
+      );
+    return d;
+  }, n = o(r), i = o(u, n), e = o(
+    c,
+    n
+  );
+  let a = 1, l = 1;
   const s = () => {
-    t && (t.style.width = t.naturalWidth + "px", t.style.height = t.naturalHeight + "px", a = t.naturalWidth / e.clientWidth - 1, d = t.naturalHeight / e.clientHeight - 1);
+    e && (e.style.width = e.naturalWidth + "px", e.style.height = e.naturalHeight + "px", a = e.naturalWidth / n.clientWidth - 1, l = e.naturalHeight / n.clientHeight - 1);
+  }, h = () => {
+    i.style.opacity = "0", e.style.opacity = "1";
+  }, y = () => {
+    i.style.opacity = "1", e.style.opacity = "0";
+  }, f = (t) => {
+    e.style.top = `${-t.offsetY * l}px`, e.style.left = `${-t.offsetX * a}px`;
   };
   return (() => {
-    t.addEventListener("load", s), e.addEventListener("mouseenter", () => {
-      i.style.opacity = "0";
-    }), e.addEventListener("mouseleave", () => {
-      i.style.opacity = "1";
-    }), e.addEventListener("mousemove", (l) => {
-      t.style.top = -l.offsetY * d + "px", t.style.left = -l.offsetX * a + "px";
-    });
+    e.addEventListener("load", s), n.addEventListener("mouseenter", h), n.addEventListener("mouseleave", y), n.addEventListener("mousemove", f);
   })(), s(), s;
 }
 export {
-  u as default
+  m as default
 };

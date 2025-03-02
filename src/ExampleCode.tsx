@@ -6,10 +6,11 @@ import { useEffect, useRef } from "react"
 export default function ExampleCode() {
   const codeRef = useRef(null)
 
+  hljs.registerLanguage("javascript", javascript)
+
   useEffect(() => {
     if (codeRef?.current) {
-      hljs.registerLanguage("javascript", javascript)
-      hljs.highlightBlock(codeRef.current)
+      hljs.highlightElement(codeRef.current)
     }
   }, [codeRef])
 
